@@ -120,6 +120,11 @@ test('should logout a user', async () => {
         .set('Authorization', `Bearer ${userOne.tokens[0].token}`)
         .send()
         .expect(200);
+
+    // Making sure that auth token in db has been removed
+    //@ts-ignore
+    const user: IUserDocument = await User.findById(userOneId);
+    expect(user.tokens).toHaveLength(0);
 });
 
 test('should not logout a user with invalid authroziaton token', async () => {

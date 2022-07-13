@@ -2,6 +2,7 @@ import express, { Request, Response, NextFunction } from 'express';
 import connectDb from './db/connect';
 
 import userRouter from './routes/user';
+import blogRouter from './routes/blog';
 
 // Basic config
 const app = express();
@@ -26,6 +27,7 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 
 // Routes
 app.use('/api', userRouter);
+app.use('/api', blogRouter);
 
 // If route not found
 app.use((req: Request, res: Response, next: NextFunction) => {

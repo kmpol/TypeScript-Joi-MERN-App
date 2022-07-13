@@ -31,7 +31,7 @@ const Navbar = () => {
     };
 
     const onLogoutClick = async () => {
-        const response = await axios({
+        await axios({
             method: 'post',
             url: 'http://localhost:5000/api/users/logout',
             headers: { Authorization: `Bearer ${user.token}` },

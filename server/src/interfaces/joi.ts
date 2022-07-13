@@ -1,3 +1,5 @@
+import mongoose from 'mongoose';
+
 export interface IJoiCreateUser {
     email: string;
     username: string;
@@ -8,4 +10,12 @@ export interface IJoiCreateUser {
 export interface IJoiLoginUser {
     username: string;
     password: string;
+}
+
+export interface IJoiCreateBlog {
+    title: string;
+    author: mongoose.Schema.Types.ObjectId;
+    content: string;
+    headline: string;
+    picture?: string;
 }

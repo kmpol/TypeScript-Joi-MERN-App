@@ -1,4 +1,4 @@
-import { Request, Response, NextFunction, ErrorRequestHandler } from 'express';
+import { Request, Response, NextFunction } from 'express';
 import { IJoiCreateUser, IJoiLoginUser } from '../interfaces/joi';
 import { IUser, IUserDocument } from '../interfaces/user';
 import User from '../models/user';

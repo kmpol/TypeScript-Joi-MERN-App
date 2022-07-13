@@ -4,11 +4,9 @@ export interface IUser {
     email: string;
     username: string;
     password: string;
-    tokens: [
-        {
-            token: string;
-        }
-    ];
+    tokens: {
+        token: any;
+    }[];
 }
 
 export interface IUserDocument extends IUser, Document {

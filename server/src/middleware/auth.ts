@@ -21,6 +21,7 @@ export const auth = async (req: Request, res: Response, next: NextFunction) => {
             _id: decoded._id,
             'tokens.token': token,
         });
+        console.log(user);
 
         if (!user) {
             throw new Error();

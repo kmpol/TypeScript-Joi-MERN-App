@@ -65,3 +65,20 @@ export const logoutUser = async (
         res.status(500).send(e.message);
     }
 };
+
+export const fetchUser = async (
+    req: Request,
+    res: Response,
+    next: NextFunction
+) => {
+    try {
+        const user = res.locals.user;
+        const token = res.locals.token;
+        res.status(200).send({
+            user,
+            token,
+        });
+    } catch (e: any) {
+        res.status(401).send(e.message);
+    }
+};

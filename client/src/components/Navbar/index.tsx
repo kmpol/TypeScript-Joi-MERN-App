@@ -1,12 +1,9 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
-
 import { State } from '../../state/reducers';
-
 import { login, logout } from '../../state/actions/userActions';
 import { IUserState } from '../../state/types/user.state';
-
 import { Container, StyledLink, Logout, Greetings } from './styles';
 
 const Navbar = () => {
@@ -19,21 +16,25 @@ const Navbar = () => {
     }, []);
 
     const fetchTokenFromLocalStorage = async () => {
-        const user: IUserState = JSON.parse(localStorage.getItem('user') || '');
-        await axios({
-            method: 'get',
-            url: 'http://localhost:5000/api/users/me',
-            headers: {
-                Authorization: `Bearer ${user.token}`,
-            },
-        });
-        dispatch<any>(login(user));
+        const user: IUserState = JSON?.parse(
+            localStorage?.getItem('user') || ''
+        );
+        if (user.token !== '') {
+            await axios({
+                method: 'get',
+                url: `${process.env.REACT_APP_BACKEND_URL}/api/users/me`,
+                headers: {
+                    Authorization: `Bearer ${user.token}`,
+                },
+            });
+            dispatch<any>(login(user));
+        }
     };
 
     const onLogoutClick = async () => {
         await axios({
             method: 'post',
-            url: 'http://localhost:5000/api/users/logout',
+            url: `${process.env.REACT_APP_BACKEND_URL}/api/users/logout`,
             headers: { Authorization: `Bearer ${user.token}` },
         });
         dispatch<any>(logout());

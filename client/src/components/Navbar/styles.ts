@@ -6,14 +6,16 @@ export const Container = styled.div`
     justify-content: flex-end;
     align-items: center;
     height: 10vh;
+    background-color: #003366;
+    color: white;
 `;
 
 export const StyledLink = styled(Link)`
     margin-right: 5vw;
     text-decoration: none;
     font-weight: 300;
-    color: black;
     font-size: 18px;
+    color: white;
 
     &:hover {
         font-weight: 400;
@@ -24,7 +26,8 @@ export const Logout = styled.p`
     margin-right: 5vw;
     text-decoration: none;
     font-weight: 300;
-    color: black;
+    color: white;
+
     font-size: 18px;
 
     &:hover {

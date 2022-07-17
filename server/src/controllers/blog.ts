@@ -33,12 +33,29 @@ export const getBlogs = async (
     next: NextFunction
 ) => {
     try {
-        const blogs = await Blog.find({});
+        const blogs = await Blog.find({}).populate('author');
         if (blogs) {
             res.status(200).send(blogs);
         } else {
             res.status(404).send({ error: 'blogs not found' });
         }
+    } catch (e: any) {
+        res.status(500).send(e.message);
+    }
+};
+
+export const getBlogById = async (
+    req: Request,
+    res: Response,
+    next: NextFunction
+) => {
+    try {
+        const blog = await Blog.findById(req.params.id).populate('author');
+        if (!blog) {
+            return res.status(404).send({ message: 'Blog not found' });
+        }
+
+        res.status(200).send(blog);
     } catch (e: any) {
         res.status(500).send(e.message);
     }

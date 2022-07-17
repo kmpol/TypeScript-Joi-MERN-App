@@ -37,16 +37,16 @@ export const InputForm = styled.input`
 `;
 
 export const Button = styled.button`
-    background-color: #59b63c;
+    background-color: #005588;
     border: none;
     padding: 10px 24px;
     width: 100%;
     margin-bottom: 24px;
     cursor: pointer;
     border-radius: 3px;
-    color: black;
+    color: white;
     &:hover {
-        background-color: #48a52b;
+        background-color: #003366;
     }
     &:disabled {
         cursor: not-allowed;
@@ -60,8 +60,10 @@ export const StyledLink = styled(Link)`
     font-size: 14px;
     margin: 20px 0 0 33px;
     width: 100%;
+    color: white;
+
     &:hover {
-        color: #726e6e;
+        color: white;
     }
 `;
 
